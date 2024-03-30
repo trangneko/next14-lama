@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('../css/theme.css');
+
+@layer utilities {
+    .h-vh-minus-nav {
+      height: calc(100vh - 4rem);
+    }
+    .bg-home {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.74)), url('/background.png');
+      }
+  }
+
+@layer components {
+    .mobileLinks {
+      @apply absolute top-16 right-0 w-1/2 h-vh-minus-nav bg-gray-800 flex flex-col items-center justify-center gap-4;
+    }
+
+    .button {
+        @apply p-5 min-w-32 cursor-pointer rounded-md
+    }
+  }
