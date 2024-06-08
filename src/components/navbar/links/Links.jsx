@@ -1,8 +1,10 @@
 "use client";
+import { handleLogout } from "@/lib/action";
+import { auth } from "@/lib/auth";
 import { useState } from "react";
 import NavLink from "./navLink/navLink";
 
-const Links = () => {
+const Links = async () => {
   const links = [
     {
       title: "Homepage",
@@ -23,7 +25,8 @@ const Links = () => {
   ];
   const [open, setOpen] = useState(true);
 
-  const session = true;
+  const session = await auth();
+  console.log(session);
   const isAdmin = true;
 
   return (
@@ -35,7 +38,11 @@ const Links = () => {
         {session ? (
           <>
             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-            <button className="px-4 py-2 rounded-xl bg-gray-900">Logout</button>
+            <form action={handleLogout}>
+              <button className="px-4 py-2 rounded-xl bg-gray-900">
+                Logout
+              </button>
+            </form>
           </>
         ) : (
           <NavLink item={{ title: "Login", path: "/login" }} />
@@ -55,9 +62,9 @@ const Links = () => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M4 6h16M4 12h16m-7 6h7"
             ></path>
           </svg>

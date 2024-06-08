@@ -6,8 +6,11 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Next App',
-  description: 'Next.js starter app',
+  title: {
+    default: 'Petito Shop',
+    template: "Petito Shop | %s"
+  },
+  description: 'Nơi chủ shop Petito order hàng Nhật nghĩ tác phẩm tốt nghiệp.',
 }
 
 export default function RootLayout({ children }) {

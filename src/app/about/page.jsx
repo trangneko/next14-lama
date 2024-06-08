@@ -1,5 +1,10 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Giới thiệu shop',
+  description: 'Nơi chủ shop Petito order hàng Nhật nghĩ tác phẩm tốt nghiệp.',
+}
+
 const AboutPage = () => {
   return (
     <div>
